@@ -47,4 +47,8 @@ RUN apk update && \
     gem install rails -v "$RILS_VERSION" --no-rdoc --no-ri --no-doc &&\
     mkdir -p /usr/app
 
+ADD run_server.god /usr/app
+
 WORKDIR /usr/app
+
+CMD god -c /usr/app/run_server.god -D
