@@ -4,7 +4,7 @@ God.watch do |w|
   w.name = 'run_server'
   w.keepalive
   # command used to start the server
-  w.start = ENV['PARKWHIZ_RUN_COMMAND'] || 'passanger start'
+  w.start = ENV['PARKWHIZ_RUN_COMMAND'] || 'passenger start'
   # seconds to wait after start before health checks begin
   w.start_grace = (ENV['HEALTHCHECK_START_GRACE'] || 60).to_i
   w.restart_if do |restart|
