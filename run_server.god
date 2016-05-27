@@ -1,5 +1,15 @@
 script_path = File.expand_path(File.dirname(__FILE__))
 
+app_name = ENV['PARKWHIZ_APP_NAME'] || 'unspecified'
+my_ip = Net::HTTP::get('icanhazip.com', '/index.html').strip
+
+God.contact(:slack) do |c|
+  c.name = 'restart'
+  c.url = ENV['HEALTHCHECK_SLACK_URL'] || "http://notifications-disabled.parkwhiz.com"
+  c.channel = '#rails_supervisor'
+  c.format = "App: #{app_name} @ #{my_ip} restarted."
+end
+
 God.watch do |w|
   w.name = 'run_server'
   w.keepalive
@@ -22,6 +32,7 @@ God.watch do |w|
       times_in = (ENV['HEALTHCHECK_TIMES_IN'] || 3).to_i
       times_of = (ENV['HEALTHCHECK_TIMES_OF'] || 3).to_i
       c.times = [times_in, times_of]
+      c.notify = 'restart'
     end
   end
   w.lifecycle do |on|
