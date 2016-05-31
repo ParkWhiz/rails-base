@@ -68,3 +68,17 @@ app for `HEALTHCHECK_FLAP_RETRY_IN` seconds. If God temporarily stops monitoring
 `HEALTHCHECK_FLAP_RETRY_TIMES` within `HEALTHCHECK_FLAP_RETRY_WITHIN` seconds,
 then God stops monitoring the app permanently.
 
+### Manually Unmonitoring
+
+If you need to disable monitoring (e.g. when performing maintainance that
+will cause the healtcheck to fail), God monitoring can be stopped by running:
+
+```
+docker exec -it MY_CONTAINER_NAME bash -c 'god unmonitor run_server'
+```
+
+To resume monitoring, run
+
+```
+docker exec -it MY_CONTAINER_NAME bash -c 'god monitor run_server'
+```
