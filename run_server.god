@@ -7,7 +7,7 @@ God.contact(:slack) do |c|
   c.name = 'restart'
   c.url = ENV['HEALTHCHECK_SLACK_URL'] || "http://notifications-disabled.parkwhiz.com"
   c.channel = '#rails_supervisor'
-  c.format = "App: #{app_name} @ #{my_ip} restarted."
+  c.format = "App: #{app_name} @ #{my_ip} restarted due to failing health check"
 end
 
 God.watch do |w|
