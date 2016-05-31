@@ -16,11 +16,11 @@ To disable God, simply define a `CMD` directive in the derived container's
 Dockerfile.
 
 If a `CMD` directive is not defined in the derived container, then God will
-be lauched to monitor the app. See the "Environmental Variables" section below
+be launched to monitor the app. See the "Environmental Variables" section below
 to see which environmental variables that the God configuration expects to
 be defined.
 
-## Environmental Variables
+### Environmental Variables
 
 The user will probably want to define `PARKWHIZ_APP_NAME`, 
 `PARKWHIZ_RUN_COMMAND`, `PARKWHIZ_RUN_DIR`, `HEALTHCHECK_HOST`,
@@ -50,21 +50,21 @@ are available for tuning.
 ### Behavior
 
 God will start the app by running `PARKWHIZ_RUN_COMMAND` inside the working
-directory `PARKWHIZ_RUN_DIR`. It will wait `HEALTHCHEC_START_GRACE` seconds
+directory `PARKWHIZ_RUN_DIR`. It will wait `HEALTHCHECK_START_GRACE` seconds
 and then begin monitoring the app.
 
 While monitoring, every `HEALTHCHECK_INTERVAL` seconds, God will send a GET
 request to `http://$HEALTHCHECK_HOST:$HEALTHCHECK_PORT$HEALTHCHECK_PATH`. If
-the server replies with an error message with a `2XX` status within
-`HEALTCHECK_TIMEOUT` seconds, the health check is a success. Otherwise, the
-health check is a failure. If `HEALTHCHECK_TIMES_IN` health checks fail within
-an interval of `HEALTCHECK_TIMES_OF` health checks, then the app will be
-restarted and a notification will be sent to the Slack webhook specified by
-`HEALTCHECK_SLACK_URL`. 
+the server replies with a `2XX` status within `HEALTHCHECK_TIMEOUT` seconds,
+the health check is a success. Otherwise, the health check is a failure. If
+`HEALTHCHECK_TIMES_IN` health checks fail within an interval of
+`HEALTHCHECK_TIMES_OF` health checks, then the app will be restarted and a
+notification will be sent to the Slack webhook specified by
+`HEALTHCHECK_SLACK_URL`. 
 
 If the app restarts `HEALTHCHECK_FLAP_MAX_RESTART_TIMES` times within
 `HEALTHCHECK_FLAP_MAX_RESTART_WITHIN` seconds, then God temporarily stops monitoring the
-app for `HEALTHCHECK_FLAP_RETRY_IN` seconds. If God temporarily stops montoring
+app for `HEALTHCHECK_FLAP_RETRY_IN` seconds. If God temporarily stops monitoring
 `HEALTHCHECK_FLAP_RETRY_TIMES` within `HEALTHCHECK_FLAP_RETRY_WITHIN` seconds,
 then God stops monitoring the app permanently.
 
