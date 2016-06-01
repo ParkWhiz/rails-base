@@ -1,7 +1,12 @@
 script_path = File.expand_path(File.dirname(__FILE__))
 
 app_name = ENV['PARKWHIZ_APP_NAME'] || 'unspecified'
-my_ip = Net::HTTP::get('icanhazip.com', '/index.html').strip
+
+begin
+  my_ip = Net::HTTP::get('icanhazip.com', '/index.html').strip
+rescue SocketError
+  my_ip = "unknown"
+end
 
 God.contact(:slack) do |c|
   c.name = 'restart'
