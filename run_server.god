@@ -4,7 +4,7 @@ app_name = ENV['PARKWHIZ_APP_NAME'] || 'unspecified'
 
 begin
   my_ip = Net::HTTP::get('icanhazip.com', '/index.html').strip
-rescue SocketError
+rescue 
   my_ip = "unknown"
 end
 
