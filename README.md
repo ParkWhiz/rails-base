@@ -46,6 +46,7 @@ are available for tuning.
 | `HEALTHCHECK_FLAP_RETRY_TIMES`        | 5               | Number of cycles of stopping and resuming monitoring tolerated before monitoring is stopped permanently                         |
 | `HEALTHCHECK_FLAP_RETRY_WITHIN`       | 18000           | Length of time within which cycles of stopping and resuming monitoring must take place before monitoring is stopped permanently |
 | `HEALTHCHECK_SLACK_URL`               |                 | Slack webhook URL for integrations                                                                                              |
+| `HEALTHCHECK_SLACK_CHANNEL`           | #dev            | Slack channel for notification, prefixed with "#"                                                                               |
 
 ### Behavior
 
