@@ -9,10 +9,17 @@ rescue
 end
 
 God.contact(:slack) do |c|
-  c.name = 'restart'
+  c.name = 'restart_healthcheck'
   c.url = ENV['HEALTHCHECK_SLACK_URL'] || "http://notifications-disabled.parkwhiz.com"
   c.channel = ENV['HEALTHCHECK_SLACK_CHANNEL'] || '#dev'
   c.format = "App: #{app_name} @ #{my_ip} restarted due to failing health check"
+end
+
+God.contact(:slack) do |c|
+  c.name = 'restart_memory'
+  c.url = ENV['HEALTHCHECK_SLACK_URL'] || "http://notifications-disabled.parkwhiz.com"
+  c.channel = ENV['HEALTHCHECK_SLACK_CHANNEL'] || '#dev'
+  c.format = "App: #{app_name} @ #{my_ip} restarted due to insufficient memory"
 end
 
 God.watch do |w|
@@ -24,6 +31,9 @@ God.watch do |w|
   # seconds to wait after start before health checks begin
   w.start_grace = (ENV['HEALTHCHECK_START_GRACE'] || 60).to_i
   w.restart_if do |restart|
+    # Of times_of health checks, times_in checks must fail before we restart
+    times_in = (ENV['HEALTHCHECK_TIMES_IN'] || 3).to_i
+    times_of = (ENV['HEALTHCHECK_TIMES_OF'] || 3).to_i
     restart.condition(:http_response_code) do |c|
       # For detailed explanation on these parameters, see:  
       #   https://github.com/mojombo/god/blob/master/lib/god/conditions/http_response_code.rb
@@ -33,11 +43,14 @@ God.watch do |w|
       c.code_is_not = 200..299
       c.timeout = (ENV['HEALTHCHECK_TIMEOUT'] || 60).to_i
       c.interval = (ENV['HEALTHCHECK_INTERVAL'] || 60).to_i
-      # Of times_of health checks, times_in checks must fail before we restart
-      times_in = (ENV['HEALTHCHECK_TIMES_IN'] || 3).to_i
-      times_of = (ENV['HEALTHCHECK_TIMES_OF'] || 3).to_i
       c.times = [times_in, times_of]
-      c.notify = 'restart'
+      c.notify = 'restart_healthcheck'
+    end
+    restart.condition(:memory_usage) do |c|
+      c.above = (ENV['HEALTHCHECK_MAX_MEMORY'] || 1024 * 3.5).to_i.megabytes
+      c.times = [times_in, times_of]
+      c.interval = (ENV['HEALTHCHECK_INTERVAL'] || 60).to_i
+      c.notify = 'restart_memory'
     end
   end
   w.lifecycle do |on|
