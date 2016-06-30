@@ -43,7 +43,12 @@ RUN apk update && \
     gem install nokogiri -v 1.6.7 --no-rdoc --no-ri --no-doc -- --use-system-libraries && \
     gem install rb-readline --no-rdoc --no-ri --no-doc && \
     gem install json -v 1.8.3 --no-rdoc --no-ri --no-doc && \
+    gem install god -v 0.13.7 --no-rdoc --no-ri --no-doc && \
     gem install rails -v "$RILS_VERSION" --no-rdoc --no-ri --no-doc &&\
     mkdir -p /usr/app
 
+ADD run_server.god /usr/app
+
 WORKDIR /usr/app
+
+CMD god -c /usr/app/run_server.god -D
