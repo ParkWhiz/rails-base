@@ -19,8 +19,8 @@ RUN \
   apk add --virtual build-dependencies $BUILD_PACKAGES && \
   apk add --virtual ruby-packages $RUBY_PACKAGES && \
   mkdir -p /usr/src/ruby && \
-  curl -fSL -o ruby.tar.gz "http://cache.ruby-lang.org/pub/ruby/$RUBY_MAJOR/ruby-$RUBY_VERSION.tar.gz" && \
-  tar -xzf ruby.tar.gz -C /usr/src/ruby &&\
+  curl -fSL -o ruby.tar.gz "https://cache.ruby-lang.org/pub/ruby/$RUBY_MAJOR/ruby-$RUBY_VERSION.tar.gz" && \
+  tar -xzf ruby.tar.gz -C /usr/src/ruby && \
   rm ruby.tar.gz && \
   cd "/usr/src/ruby/ruby-$RUBY_VERSION" && \
   autoconf && \
@@ -30,7 +30,7 @@ RUN \
   gem update -N --system $RUBY_GEMS_VERSION && \
   rm -rf /usr/src/ruby && \
   cd ~/ && \
-  apk add --update-cache --virtual passenger-dependencies --repository http://nl.alpinelinux.org/alpine/edge/main libexecinfo libexecinfo-dev && \
+  apk add --update-cache --virtual passenger-dependencies --repository https://nl.alpinelinux.org/alpine/edge/main libexecinfo libexecinfo-dev && \
   curl -fSL "https://s3.amazonaws.com/phusion-passenger/releases/$PASSENGER.tar.gz" | tar xvz && \
   mv "$PASSENGER/" /passenger && \
   cd /passenger && \
