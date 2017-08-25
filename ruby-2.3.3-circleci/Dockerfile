@@ -14,7 +14,6 @@ RUN \
     postgresql-9.4-plv8 \
     postgresql-9.4-postgis-2.1 \
     postgresql-client-9.4 \
-    redis-server \
     software-properties-common \
     sudo && \
   wget https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
