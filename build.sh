@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "Which image would you like to build? (2.2.4, 2.3.2 or 2.3.3)?"
+echo "Which image would you like to build? (e.g. 2.3.3, 2.3.3-circleci)?"
 read ruby_version
 
 if [ ! -d "ruby-$ruby_version" ]; then
