@@ -2,13 +2,13 @@ FROM alpine:3.4
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 ENV BUILD_PACKAGES autoconf bison build-base curl git libc-dev libstdc++ openssl-dev pcre pcre-dev postgresql-dev procps ruby-dev wget
-ENV BUNDLER_VERSION 1.16.1
+ENV BUNDLER_VERSION 1.16.2
 ENV GEM_HOME /usr/local/bundle
 ENV BUNDLE_APP_CONFIG $GEM_HOME
-ENV PASSENGER passenger-5.3.0
+ENV PASSENGER passenger-5.3.2
 ENV RUBY_PACKAGES ca-certificates curl-dev file imagemagick libxml2-dev libxslt-dev linux-headers mysql-dev nginx nodejs postgresql-client procps readline-dev ruby-rake tzdata
 ENV RUBY_VERSION 2.3.7
-ENV RUBYGEMS_VERSION 2.7.2
+ENV RUBYGEMS_VERSION 2.7.7
 
 ENV PATH "$GEM_HOME/bin:/passenger/bin:$PATH"
 
