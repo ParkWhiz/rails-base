@@ -6,7 +6,8 @@ ENV BUNDLER_VERSION 1.16.2
 ENV GEM_HOME /usr/local/bundle
 ENV BUNDLE_APP_CONFIG $GEM_HOME
 ENV PASSENGER passenger-5.3.2
-ENV RUBY_PACKAGES ca-certificates curl-dev file imagemagick libxml2-dev libxslt-dev linux-headers mysql-dev nginx nodejs postgresql-client procps readline-dev ruby-rake tzdata
+ENV RUBY_PACKAGES ca-certificates curl-dev file imagemagick libxml2-dev libxslt-dev linux-headers mysql-dev nginx nodejs postgresql-client procps readline-dev ruby-rake tzdata libffi
+ENV RUBY_MAJOR 2.3
 ENV RUBY_VERSION 2.3.7
 ENV RUBYGEMS_VERSION 2.7.7
 
@@ -44,4 +45,5 @@ RUN \
   gem install nokogiri -v 1.6.7 --no-rdoc --no-ri --no-doc -- --use-system-libraries && \
   gem install rb-readline --no-rdoc --no-ri --no-doc && \
   gem install json -v 1.8.3 --no-rdoc --no-ri --no-doc && \
+  gem install rbtrace -v 0.4.11 --no-rdoc --no-ri --no-doc && \
   rm -rf /var/cache/apk/*
