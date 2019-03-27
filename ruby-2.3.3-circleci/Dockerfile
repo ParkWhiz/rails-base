@@ -9,6 +9,7 @@ RUN \
   apt-get install -y \
     apt-transport-https \
     ca-certificates \
+    cmake \
     curl \
     gnupg2 \
     liblwgeom-2.1.4 \
@@ -20,7 +21,7 @@ RUN \
     software-properties-common \
     nano \
     sudo && \
-  wget -O phantomjs-2.1.1-linux-x86_64.tar.bz2 "https://bbuseruploads.s3.amazonaws.com/fd96ed93-2b32-46a7-9d2b-ecbc0988516a/downloads/396e7977-71fd-4592-8723-495ca4cfa7cc/phantomjs-2.1.1-linux-x86_64.tar.bz2?Signature=MhtLUm7MGshNQD1Gae8dZZruHgw%3D&Expires=1553627402&AWSAccessKeyId=AKIAIQWXW6WLXMB5QZAQ&versionId=null&response-content-disposition=attachment%3B%20filename%3D%22phantomjs-2.1.1-linux-x86_64.tar.bz2%22" && \
+  wget -O phantomjs-2.1.1-linux-x86_64.tar.bz2 "https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2" && \
   tar -xvf phantomjs-2.1.1-linux-x86_64.tar.bz2 && \
   cd phantomjs-2.1.1-linux-x86_64/bin && \
   ln -s `pwd`/phantomjs /usr/local/bin/phantomjs && \
