@@ -11,7 +11,9 @@ WORKDIR /
 RUN \
   apk update && \
   apk upgrade && \
-  apk add docker
+  apk add docker && \
+  apk add nano && \
+  apk add vim
 
 
 
