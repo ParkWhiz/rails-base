@@ -1,16 +1,7 @@
-FROM ruby:3.0.2-buster
+FROM parkwhiz/rails-base:3.0.2_20210812134927
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 WORKDIR /
-
-
-# -----------------------
-# -- Installing packages.
-# -----------------------
-
-RUN \
-  apt-get update && \
-  apt-get install -y --no-install-recommends nano vim postgresql
 
 
 # ---------------------
