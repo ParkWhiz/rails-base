@@ -1,16 +1,20 @@
 #!/bin/bash
 
-echo "Which image would you like to build? (e.g. 2.3.7, 2.3.7-circleci)?"
-read ruby_version
+echo "Which image would you like to build? (e.g. 2.3.7, 2.3.7-circleci, greenlight-cinc-22)?"
+read name
 
-if [ ! -d "ruby-$ruby_version" ]; then
-  echo "Unknown version of Ruby: '$ruby_version'"
-  exit
+dir_name="$name"
+if [ ! -d "$dir_name" ]; then
+  dir_name="ruby-$name"
+  if [ ! -d "$dir_name" ]; then
+    echo "Unknown version of Ruby or container: '$name'"
+    exit
+  fi
 fi
 
-cd "ruby-$ruby_version"
+cd "$dir_name"
 
-rails_base_next_version="${ruby_version}_`date +%Y%m%d%H%M%S`"
+rails_base_next_version="${name}_`date +%Y%m%d%H%M%S`"
 echo "Building rails-base for tag $rails_base_next_version"
 docker build -t parkwhiz/rails-base:$rails_base_next_version .
 
