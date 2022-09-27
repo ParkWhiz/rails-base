@@ -16,7 +16,7 @@ cd "$dir_name"
 
 rails_base_next_version="${name}_`date +%Y%m%d%H%M%S`"
 echo "Building rails-base for tag $rails_base_next_version"
-docker build -t parkwhiz/rails-base:$rails_base_next_version .
+docker build -t parkwhiz/rails-base:$rails_base_next_version . $@
 
 if [ $? -ne 0 ]; then
   echo
