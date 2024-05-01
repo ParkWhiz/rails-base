@@ -1,4 +1,4 @@
-FROM parkwhiz/rails-base:3.0.2_20240501133620
+FROM parkwhiz/rails-base:3.0.2_20240501155324
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 WORKDIR /
