@@ -15,7 +15,7 @@ Once you are ready to use the new image for an application, go to the repo for t
 ### Rails 2.6.3
 
 * `rails-base:2.6.3_20190429154415`: Initial base container.
-  * _Circle: `rails-base:2.6.3-circleci_20240501155741`_
+  * _Circle: `rails-base:2.6.3-circleci_20190501132020`_
 
 ### Rails 3.0.2
 
