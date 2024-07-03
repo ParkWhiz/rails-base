@@ -23,3 +23,5 @@ Once you are ready to use the new image for an application, go to the repo for t
   * _Circle: `rails-base:3.0.2-circleci_20210813120627`_
 * `parkwhiz/rails-base:3.0.2_20240501155324`: Adds jemalloc.
   * _Circle: `rails-base:3.0.2-circleci_20240501155741`_
+* `rails-base:3.0.2_20240522143800`: Postgres 16 libraries.
+  * _Circle: `rails-base:3.0.2-circleci_20240522144959`_
