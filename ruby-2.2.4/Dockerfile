@@ -1,4 +1,4 @@
-FROM alpine:3.2
+FROM alpine:3.22.0
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 ENV PASSENGER passenger-5.0.18
