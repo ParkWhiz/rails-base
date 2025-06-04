@@ -1,4 +1,4 @@
-FROM alpine:3.9
+FROM alpine:3.22.0
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 WORKDIR /
