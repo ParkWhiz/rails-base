@@ -1,4 +1,4 @@
-FROM alpine:3.4
+FROM alpine:3.22.0
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 ENV BUILD_PACKAGES autoconf bison build-base curl git libc-dev libstdc++ openssl-dev pcre pcre-dev postgresql-dev procps ruby-dev wget
