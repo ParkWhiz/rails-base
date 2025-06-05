@@ -8,6 +8,8 @@ Run the build script from the root of the repo and follow the prompts:
 ./build.sh
 ```
 
+(You will likely have to have a member of Dev Ops run it to actually push the tag to dockerhub, as the `devops` team is the only one with `Read & Write` access to the `rails-base` project.)
+
 Once you are ready to use the new image for an application, go to the repo for that application and update the `FROM` statement in the Dockerfile to point at the new version of the image.
 
 ## Notable container changelog
