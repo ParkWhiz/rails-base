@@ -8,14 +8,11 @@ Run the build script from the root of the repo and follow the prompts:
 ./build.sh
 ```
 
+(You will likely have to have a member of Dev Ops run it to actually push the tag to dockerhub, as the `devops` team is the only one with `Read & Write` access to the `rails-base` project.)
+
 Once you are ready to use the new image for an application, go to the repo for that application and update the `FROM` statement in the Dockerfile to point at the new version of the image.
 
 ## Notable container changelog
-
-### Rails 2.6.3
-
-* `rails-base:2.6.3_20190429154415`: Initial base container.
-  * _Circle: `rails-base:2.6.3-circleci_20190501132020`_
 
 ### Rails 3.0.2
 
