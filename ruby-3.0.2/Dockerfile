@@ -17,4 +17,4 @@ RUN curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc| gpg --dearmor
   echo $(lsb_release -cs) && \
   sh -c 'echo "deb https://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list' && \
   apt update && \
-  apt install -y --no-install-recommends postgresql-client-16
+  apt install -y --no-install-recommends postgresql-client-17
