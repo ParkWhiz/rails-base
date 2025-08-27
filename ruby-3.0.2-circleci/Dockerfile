@@ -1,4 +1,4 @@
-FROM parkwhiz/rails-base:3.0.2_20240522143800
+FROM parkwhiz/rails-base:ruby-3.0.2_20250813112626
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 WORKDIR /
