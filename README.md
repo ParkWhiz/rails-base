@@ -14,6 +14,11 @@ Once you are ready to use the new image for an application, go to the repo for t
 
 ## Notable container changelog
 
+### Rails 3.4.6
+
+* `rails-base:ruby-3.4.6_20250930095710`: Initial base container.
+  * _Circle: `rails-base:ruby-3.4.6-circleci_20251001103045`_
+
 ### Rails 3.0.2
 
 * `rails-base:3.0.2_20210812134927`: Initial base container.
