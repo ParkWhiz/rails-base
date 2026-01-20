@@ -1,4 +1,4 @@
-FROM ruby:4.0.1-bookworm
+FROM ruby:4.0.1-trixie
 LABEL org.opencontainers.image.authors="ParkWhiz <dev@parkwhiz.com>"
 
 WORKDIR /
