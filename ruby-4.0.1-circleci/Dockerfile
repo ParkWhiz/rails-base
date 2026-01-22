@@ -1,4 +1,4 @@
-FROM parkwhiz/rails-base:ruby-4.0.1_20260120094459
+FROM parkwhiz/rails-base:ruby-4.0.1_20260122144638
 LABEL org.opencontainers.image.authors="ParkWhiz <dev@parkwhiz.com>"
 
 WORKDIR /
