@@ -1,4 +1,4 @@
-FROM ruby:latest
+FROM ruby:4.0.1-trixie
 MAINTAINER ParkWhiz <dev@parkwhiz.com>
 
 WORKDIR /
